@@ -1,0 +1,42 @@
+Medications,Allergies,Immunizations,Insurance,Age
+Aspirin;Levothyroxine,Dairy;Wheat;Gluten,Flu Shot;HIV Vaccine,true,24
+Ibuprofen;Synthroid,Peanuts;Shellfish;Penicillin,Tetanus Vaccine;Hepatitis B Vaccine,false,32
+Acetaminophen;Metformin,Eggs;Soy;Tree Nuts,Pneumococcal Vaccine,true,45
+Lisinopril;Atorvastatin,Fish;Sesame;Latex,Hepatitis A Vaccine;Varicella (Chickenpox) Vaccine,false,38;
+Hydrochlorothiazide;Metoprolol,Milk;Mustard;Sulfites,Human Papillomavirus (HPV) Vaccine;Influenza Vaccine,true,50
+Amoxicillin;Simvastatin,Shellfish;Soy;Peanuts,Meningococcal Vaccine;Pertussis Vaccine,false,28
+Losartan;Albuterol,Wheat;Eggs;Sesame,Hepatitis B Vaccine;Haemophilus influenzae type b (Hib) Vaccine,true,35
+Atenolol;Furosemide,Peanuts;Milk;Eggs,Typhoid Vaccine;Varicella (Chickenpox) Vaccine,false,42
+Metoprolol;Omeprazole,Shellfish;Tree Nuts;Milk,Hepatitis A Vaccine;Influenza Vaccine,true,55
+Warfarin;Levothyroxine,Soy;Fish;Eggs,Pneumococcal Vaccine;Human Papillomavirus (HPV) Vaccine,false,30
+Amlodipine;Metformin,Wheat;Peanuts;Tree Nuts,Hepatitis B Vaccine,true,48
+Atorvastatin;Aspirin,Milk;Soy;Shellfish,Influenza Vaccine,false,40
+Metoprolol;Hydrochlorothiazide,Soy;Eggs;Tree Nuts,Typhoid Vaccine;Varicella (Chickenpox) Vaccine,true,60
+Levothyroxine;Lisinopril,Peanuts;Shellfish;Milk,Pneumococcal Vaccine;Hepatitis A Vaccine,false,22
+Simvastatin;Losartan,Sesame;Latex;Peanuts,Meningococcal Vaccine;Human Papillomavirus (HPV) Vaccine,true,33
+Metformin;Hydrochlorothiazide,Wheat;Milk;Soy,Typhoid Vaccine,false,47
+Levothyroxine;Aspirin,Tree Nuts;Eggs;Shellfish,Hepatitis B Vaccine;Haemophilus influenzae type b (Hib) Vaccine,true,29
+Atenolol;Omeprazole,Peanuts;Milk;Wheat,Tetanus Vaccine;Influenza Vaccine,false,52
+Warfarin;Simvastatin,Shellfish;Soy;Eggs,Varicella (Chickenpox) Vaccine;Pneumococcal Vaccine,true,37
+Metoprolol;Hydrochlorothiazide,Tree Nuts;Milk;Wheat,Hepatitis A Vaccine;Influenza Vaccine,false,43
+Atorvastatin;Levothyroxine,Fish;Eggs;Soy,Influenza Vaccine;Hepatitis B Vaccine,true,56
+Amoxicillin;Metformin,Sesame;Milk;Wheat,Typhoid Vaccine;Pertussis Vaccine,false,31
+Ibuprofen;Losartan,Peanuts;Shellfish;Soy,Human Papillomavirus (HPV) Vaccine;Varicella (Chickenpox) Vaccine,true,49
+Lisinopril;Levothyroxine,Tree Nuts;Eggs;Milk,Influenza Vaccine,false,39
+Atenolol;Furosemide,Peanuts;Milk;Eggs,Typhoid Vaccine;Varicella (Chickenpox) Vaccine,true,44
+Metoprolol;Omeprazole,Shellfish;Tree Nuts;Milk,Hepatitis A Vaccine;Influenza Vaccine,true,35
+Warfarin;Levothyroxine,Soy;Fish;Eggs,Pneumococcal Vaccine;Human Papillomavirus (HPV) Vaccine,false,30
+Amlodipine;Metformin,Wheat;Peanuts;Tree Nuts,Hepatitis B Vaccine,true,48
+Atorvastatin;Aspirin,Milk;Soy;Shellfish,Influenza Vaccine,false,40
+Metoprolol;Hydrochlorothiazide,Soy;Eggs;Tree Nuts,Typhoid Vaccine;Varicella (Chickenpox) Vaccine,true,60
+Levothyroxine;Lisinopril,Peanuts;Shellfish;Milk,Pneumococcal Vaccine;Hepatitis A Vaccine,false,22
+Simvastatin;Losartan,Sesame;Latex;Peanuts,Meningococcal Vaccine;Human Papillomavirus (HPV) Vaccine,true,33
+Metformin;Hydrochlorothiazide,Wheat;Milk;Soy,Typhoid Vaccine,false,47
+Levothyroxine;Aspirin,Tree Nuts;Eggs;Shellfish,Hepatitis B Vaccine;Haemophilus influenzae type b (Hib) Vaccine,true,29
+Atenolol;Omeprazole,Peanuts;Milk;Wheat,Tetanus Vaccine;Influenza Vaccine,false,52
+Warfarin;Simvastatin,Shellfish;Soy;Eggs,Varicella (Chickenpox) Vaccine;Pneumococcal Vaccine,true,37
+Metoprolol;Hydrochlorothiazide,Tree Nuts;Milk;Wheat,Hepatitis A Vaccine;Influenza Vaccine,false,43
+Atorvastatin;Levothyroxine,Fish;Eggs;Soy,Influenza Vaccine;Hepatitis B Vaccine,true,56
+Amoxicillin;Metformin,Sesame;Milk;Wheat,Typhoid Vaccine;Pertussis Vaccine,false,31
+Ibuprofen;Losartan,Peanuts;Shellfish;Soy,Human Papillomavirus (HPV) Vaccine;Varicella (Chickenpox) Vaccine,true,49
+Lisinopril;Levothyroxine,Tree Nuts;Eggs;Milk,Influenza Vaccine,false,39
