@@ -61,6 +61,10 @@ public class Person {
         return verificationKey;
     }
 
+    public ArrayList<Person> getArrayList(){
+        return access;
+    }
+
 
     public void printPatients(){
         if(!access.isEmpty()){
