@@ -7,7 +7,6 @@ public class OverTheCounter extends Medicine {
 
     @Override
     public String getDetails() {
-        // Implement the specific details for OverTheCounter medicine.
         return "Over-the-counter medicine: " + getMedicine();
     }
 
