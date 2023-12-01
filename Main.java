@@ -111,12 +111,19 @@ public class Main {
     }
 
     public static boolean removeExpiredMeds(){
-        for(int i = 0; i < countLinesInCSV()+1; i++){
-            String expires = experiationDate(i);
-            if(Medicine.isExpired(expires)){
-                int id = getID(i);
+        try{
+            for(int i = 0; i < countLinesInCSV(); i++){
+                String expires = experiationDate(i);
+                if(Medicine.isExpired(expires)){
+                    int id = getID(i);
+                    Medicine.removeRowFromCSV(id);
+                }
+            }
+            if(Medicine.isExpired(experiationDate(countLinesInCSV()))){
+                int id = getID(countLinesInCSV()+1);
                 Medicine.removeRowFromCSV(id);
             }
+        }catch (IndexOutOfBoundsException e){
         }
         return true;
     }
