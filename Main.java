@@ -13,15 +13,19 @@ public class Main {
     public static final String MEDICINE_CSV = "/Users/brandonfoley/Documents/CPSC_Courses/MP4/Medicines.csv";
     public static final String HR_CSV = "/Users/brandonfoley/Documents/CPSC_Courses/MP4/FakeHRs.csv";
     public static final String USER_CSV = "/Users/brandonfoley/Documents/CPSC_Courses/MP4/UserCSV.csv";
+    public static File medicinesFile = new File(MEDICINE_CSV);
+    public static List<List<String>> data = medicinesFile.getData();
     public static void main(String[] args){
         System.out.println("\n\n\n");
-        File medicinesFile = new File(MEDICINE_CSV);
         File HRFile = new File(HR_CSV);
         List<List<String>> HRData = HRFile.getData();
-        List<List<String>> data = medicinesFile.getData();
         Users u = new Users();
         displayLoadingScreen();
         simulateDatabaseLoading();
+        removeExpiredMeds();
+        System.out.print("\033[H\033[2J");
+        System.out.println("Expired meds removed\n");
+
         System.out.println("Medical database loaded successfully!\n");
 
         int input = 1;
@@ -80,6 +84,19 @@ public class Main {
 
     }
 
+    public static int lastID(){
+        int index = Integer.parseInt(data.get(countLinesInCSV()-1).get(0));
+        return index;
+    }
+
+    public static String experiationDate(int i){
+        String expires = data.get(i).get(2);
+        return expires;
+    }
+
+    public static int getID(int i){
+        return Integer.parseInt(data.get(i).get(0));
+    }
 
     public static int countLinesInCSV() {
         int lineCount = 0;
@@ -93,6 +110,17 @@ public class Main {
         return lineCount;
     }
 
+    public static boolean removeExpiredMeds(){
+        for(int i = 0; i < countLinesInCSV()+1; i++){
+            String expires = experiationDate(i);
+            if(Medicine.isExpired(expires)){
+                int id = getID(i);
+                Medicine.removeRowFromCSV(id);
+            }
+        }
+        return true;
+    }
+
     private static void displayLoadingScreen() {
         System.out.print("\033[H\033[2J");
         printLogo();
@@ -104,7 +132,7 @@ public class Main {
             }
 
         // Simulate loading animation with a progress bar
-        int totalProgressBars = 50;
+        int totalProgressBars = 60;
         for (int i = 0; i < totalProgressBars; i++) {
             try {
                 Thread.sleep(150);
