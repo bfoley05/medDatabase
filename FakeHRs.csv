@@ -2,7 +2,7 @@ Medications,Allergies,Immunizations,Insurance,Age
 Aspirin;Levothyroxine,Dairy;Wheat;Gluten,Flu Shot;HIV Vaccine,true,24
 Ibuprofen;Synthroid,Peanuts;Shellfish;Penicillin,Tetanus Vaccine;Hepatitis B Vaccine,false,32
 Acetaminophen;Metformin,Eggs;Soy;Tree Nuts,Pneumococcal Vaccine,true,45
-Lisinopril;Atorvastatin,Fish;Sesame;Latex,Hepatitis A Vaccine;Varicella (Chickenpox) Vaccine,false,38;
+Lisinopril;Atorvastatin,Fish;Sesame;Latex,Hepatitis A Vaccine;Varicella (Chickenpox) Vaccine,false,38
 Hydrochlorothiazide;Metoprolol,Milk;Mustard;Sulfites,Human Papillomavirus (HPV) Vaccine;Influenza Vaccine,true,50
 Amoxicillin;Simvastatin,Shellfish;Soy;Peanuts,Meningococcal Vaccine;Pertussis Vaccine,false,28
 Losartan;Albuterol,Wheat;Eggs;Sesame,Hepatitis B Vaccine;Haemophilus influenzae type b (Hib) Vaccine,true,35
