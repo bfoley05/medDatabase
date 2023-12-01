@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,18 +27,15 @@ public abstract class Medicine implements Counter{
 
     public abstract String getDetails();
 
-    public boolean isExpired() {
-        // Implement the logic to check if the medicine is expired based on the current date
-        // You can use the java.util.Date or java.time.LocalDate classes for this purpose.
-        // For simplicity, let's assume expirationDate is a string in the format "yyyy-MM-dd".
-        return expirationDate.compareTo(getCurrentDate()) < 0;
+    public static boolean isExpired(String dateExpires) {
+        return dateExpires.compareTo(getCurrentDate()) < 0;
     }
 
-    private String getCurrentDate() {
-        // Implement the logic to get the current date as a string.
-        // For simplicity, let's use the format "yyyy-MM-dd".
-        // You can use the java.util.Date or java.time.LocalDate classes for this purpose.
-        return "2023-01-01"; // Replace with actual code to get the current date.
+    private static String getCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = currentDate.format(formatter);
+        return formattedDate;
     }
 
     public String getMedicine(){
