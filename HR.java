@@ -10,8 +10,10 @@ public class HR {
     ArrayList<String> immunizations;
     boolean insurance;
     int age;
+    List<List<String>> HRData;
 
     public HR(List<List<String>> HRData){
+        this.HRData = HRData;
         Random randy = new Random();
         int index = randy.nextInt(HRData.size()-1) + 1;
         List<String> medicationList = Arrays.asList((HRData.get(index).get(0)).split(";"));
