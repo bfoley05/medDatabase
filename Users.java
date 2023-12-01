@@ -101,7 +101,7 @@ public class Users {
                     int index = randy.nextInt(CHEMICAL_COMPOUNDS.size());
                     int index2 = randy.nextInt(DRUG_INTERACTIONS.size()-1)+1;
                     String drugInteractions = DRUG_INTERACTIONS.get(index2) + ";" + DRUG_INTERACTIONS.get(index2-1);
-                    new OverTheCounter(Main.countLinesInCSV(), name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
+                    new OverTheCounter(Main.lastID()+1, name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
                 }else if(input2.equals("n")){
                     System.out.println("Enter the name: ");
                     String name = sc.nextLine();
@@ -111,7 +111,7 @@ public class Users {
                     int index = randy.nextInt(CHEMICAL_COMPOUNDS.size());
                     int index2 = randy.nextInt(DRUG_INTERACTIONS.size()-1)+1;
                     String drugInteractions = DRUG_INTERACTIONS.get(index2) + ";" + DRUG_INTERACTIONS.get(index2-1);
-                    new Prescription(Main.countLinesInCSV(), name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
+                    new Prescription(Main.lastID()+1, name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
                 }
             }else if(Integer.parseInt(input) == 2){
                 System.out.println("What is the id number of the medicine to remove?");
