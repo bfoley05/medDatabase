@@ -8,7 +8,6 @@ public class Prescription extends Medicine {
 
     @Override
     public String getDetails() {
-        // Implement the specific details for Prescription medicine.
         return "Prescription medicine: " + getMedicine();
     }
 
