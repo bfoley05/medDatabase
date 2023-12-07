@@ -10,12 +10,27 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The prupose is to create and manage medeince is the parent class of overthecounter and prescirption
+ * @author Brandon Foley
+ * @version 1.0
+ */
+
 public abstract class Medicine implements Counter{
     public int id;
     public String name;
     public String expirationDate;
     public String chemicalCompound;
     public String drugInteractions;
+
+    /**
+     * Overloaded constuctor to be implemented from the children class
+     * @param id int id of the medicine
+     * @param name String of the name of the medicine
+     * @param expirationDate String of when it expires
+     * @param chemicalCompound String of the chemical compound of the medicine
+     * @param drugInteractions String of what other interactions it could have
+     */
 
     public Medicine(int id, String name, String expirationDate, String chemicalCompound, String drugInteractions) {
         this.id = id;
@@ -25,12 +40,26 @@ public abstract class Medicine implements Counter{
         this.drugInteractions = drugInteractions;
     }
 
+    /**
+     * absract method
+     * @return String
+     */
     public abstract String getDetails();
+
+    /**
+     * Takes in a String and compares it to the current date
+     * @param dateExpires the input of the date we are checking
+     * @return true if it is expired
+     */
 
     public static boolean isExpired(String dateExpires) {
         return dateExpires.compareTo(getCurrentDate()) < 0;
     }
 
+    /**
+     * Gets todays date from java.time
+     * @return the String of the current date in the correct format
+     */
     private static String getCurrentDate() {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -38,10 +67,18 @@ public abstract class Medicine implements Counter{
         return formattedDate;
     }
 
+    /**
+     * Getter gfor the medince
+     * @return the String of the medicine
+     */
     public String getMedicine(){
         return name;
     }
 
+    /**
+     * Adds data to the CSV from an Array
+     * @param data takes in array and parses it so it can be added to a csv
+     */
     public static void addDataToCSV(String[] data) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(Main.MEDICINE_CSV, true))) {
             // Join the data with commas to form a CSV row
@@ -59,7 +96,10 @@ public abstract class Medicine implements Counter{
         }
     }
 
-
+    /**
+     * Takes in the id of the medicine that we want to remove
+     * @param idToRemove id of the medince to be removed
+     */
     public static void removeRowFromCSV(int idToRemove) {
         // Read the existing CSV file
         List<String> csvData = readCSV();
@@ -80,6 +120,10 @@ public abstract class Medicine implements Counter{
         writeCSV(csvData);
     }
 
+    /**
+     * Reads the current file
+     * @return 1D array of the csv
+     */
     private static List<String> readCSV() {
         List<String> csvData = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(Main.MEDICINE_CSV))) {
@@ -93,6 +137,10 @@ public abstract class Medicine implements Counter{
         return csvData;
     }
 
+    /**
+     * Adds the new data to the csv
+     * @param data the new data to be added
+     */
     private static void writeCSV(List<String> data) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(Main.MEDICINE_CSV))) {
             for (String row : data) {
