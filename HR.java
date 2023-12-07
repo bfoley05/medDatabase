@@ -4,6 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The prupose is to create and store new HR's
+ * @author Brandon Foley
+ * @version 1.0
+ */
+
 public class HR {
     ArrayList<String> medicationsOn;
     ArrayList<String> allergies;
@@ -12,6 +18,10 @@ public class HR {
     int age;
     List<List<String>> HRData;
 
+    /**
+     * Overloaded constructor that takes in a 2D array and sets the variables of this class to those inputs
+     * @param HRData 2D array of HR data
+     */
     public HR(List<List<String>> HRData){
         this.HRData = HRData;
         Random randy = new Random();
@@ -26,6 +36,9 @@ public class HR {
         age = Integer.parseInt(HRData.get(index).get(4));
     }
 
+    /**
+     * ToString to output everythin in a organized way
+     */
     public String toString(){
         String output = "\n---------------------------------------------------------------------------------------";
         output += "\nMedications on:\n";
