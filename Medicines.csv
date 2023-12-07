@@ -25,7 +25,6 @@ id,medicine_name,expiration_date,over_the_counter,chemical_compound,drug_interac
 24,Gabapentin,2024-09-18,false,Gabapentin,Alcohol;Morphine,"May cause drowsiness, avoid driving."
 25,Tadalafil,2025-11-10,false,Tadalafil,Nitrates;Riociguat,"Seek medical attention for prolonged erection."
 26,Alprazolam,2024-07-22,false,Alprazolam,Alcohol;CNS depressants,"Avoid grapefruit juice during treatment."
-27,Methotrexate,2023-12-05,false,Methotrexate,Probenecid;NSAIDs,"Avoid alcohol during treatment."
 28,Furosemide,2024-06-30,false,Furosemide,Lithium;Digoxin,"Monitor electrolyte levels regularly."
 29,Bupropion,2024-01-08,false,Bupropion hydrochloride,MAOIs;Thioridazine,"May cause seizures, use caution."
 30,Venlafaxine,2024-10-01,false,Venlafaxine hydrochloride,MAOIs;Lithium,"Report any changes in mood or behavior."
