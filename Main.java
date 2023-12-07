@@ -6,13 +6,17 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+/**
+ * The prupose is to run the database
+ * @author Brandon Foley
+ * @version 1.0
+ */
 
 public class Main {
     public static final String MASTER_KEY = "test";
     // adjust file path to your own path. Below is an exmaple for macs. Otherwise use C:\Users\name\Documents\CPSC_Courses\MP4\Medicines.csv
     public static final String MEDICINE_CSV = "/Users/brandonfoley/Documents/CPSC_Courses/MP4/Medicines.csv";
     public static final String HR_CSV = "/Users/brandonfoley/Documents/CPSC_Courses/MP4/FakeHRs.csv";
-    public static final String USER_CSV = "/Users/brandonfoley/Documents/CPSC_Courses/MP4/UserCSV.csv";
     public static File medicinesFile = new File(MEDICINE_CSV);
     public static List<List<String>> data = medicinesFile.getData();
     public static void main(String[] args){
@@ -60,7 +64,11 @@ public class Main {
                         u.printDoctors();
                         System.out.println("Please enter the name of the doctor you would like: ");
                         String nameOfDoc = sc.nextLine();
-                        u.getPerson(nameOfDoc).addPatient(u.getPerson(name));;
+                        try{
+                            u.getPerson(nameOfDoc).addPatient(u.getPerson(name));
+                        } catch (NullPointerException e){
+                            System.out.println("There are no doctors at this time, please come back and register at a later date");
+                        }
                     }
                 }else if(input == 0){
                     break;
@@ -84,20 +92,38 @@ public class Main {
 
     }
 
+    /**
+     * Gets the last ID of medicines
+     * @return interger of the id
+     */
     public static int lastID(){
         int index = Integer.parseInt(data.get(countLinesInCSV()-1).get(0));
         return index;
     }
 
+    /**
+     * gets experation date from the id of the medicine
+     * @param i id to find
+     * @return String of the experation date
+     */
     public static String experiationDate(int i){
         String expires = data.get(i).get(2);
         return expires;
     }
 
+    /**
+     * Gets the id based of the index
+     * @param i index to find
+     * @return id of the given index
+     */
     public static int getID(int i){
         return Integer.parseInt(data.get(i).get(0));
     }
 
+    /**
+     * counts the amount of lines in the medicine csv
+     * @return how many lines there are
+     */
     public static int countLinesInCSV() {
         int lineCount = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(MEDICINE_CSV))) {
@@ -110,6 +136,10 @@ public class Main {
         return lineCount;
     }
 
+    /**
+     * removes all expired meds at start up
+     * @return true when finished
+     */
     public static boolean removeExpiredMeds(){
         try{
             for(int i = 0; i < countLinesInCSV(); i++){
@@ -128,6 +158,9 @@ public class Main {
         return true;
     }
 
+    /**
+     * Our loading screen
+     */
     private static void displayLoadingScreen() {
         System.out.print("\033[H\033[2J");
         printLogo();
@@ -168,6 +201,9 @@ public class Main {
         System.out.print("\033[H\033[2J");
     }
 
+    /**
+     * Loading point
+     */
     private static void simulateDatabaseLoading() {
         try {
             Thread.sleep(1500);
@@ -176,6 +212,9 @@ public class Main {
         }
     }
 
+    /**
+     * our logo
+     */
     public static void printLogo(){
         System.out.println("\n\n");
         System.out.println("                             &&&&&&&&&&&&&&&&&&                                 ");
