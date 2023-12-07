@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The prupose is to have all the users of our medical database in one spot
+ * @author Brandon Foley
+ * @version 1.0
+ */
+
 public class Users {
     static HashMap<String, Person> hm = new HashMap<String, Person>();
     private static final List<String> CHEMICAL_COMPOUNDS = Arrays.asList(
@@ -33,10 +39,19 @@ public class Users {
     "Warfarin","Ibuprofen","Naproxen","Alcohol","Aliskiren","Lithium","Grapefruit juice","Amiodarone","CNS depressants","Clopidogrel","Ketoconazole","Cimetidine","Furosemide","Probenecid","Methotrexate","Cyclosporine","MAOIs","Rivaroxaban","Procainamide","Calcium supplements","Antacids","Bleeding disorders","NSAIDs","Sertraline","Lisinopril","Verapamil","Thioridazine","Potassium supplements","Pimozide","Morphine","Nitrates","Riociguat","Simvastatin","Theophylline","Carbamazepine","Doxazosin","Ritonavir","Serotonin reuptake inhibitors","Clopidogrel","Digoxin","Aspirin","Ciprofloxacin","Statins","NSAIDs","Oxycodone","None"
     );
 
+    /**
+     * adds person to list of users
+     * @param p Person to be added
+     */
     public void addPerson(Person p){
         hm.put(p.getName(), p);
     }
 
+    /**
+     * to get access to our portal
+     * @param n String name to verify your identity
+     * @return true if the verifcation key is correct
+     */
     public boolean requestAccess(String n){
         Scanner sc = new Scanner(System.in);
         Person p = hm.get(n);
@@ -50,6 +65,9 @@ public class Users {
         }
     }
 
+    /**
+     * runs through the proccess of getting access
+     */
     public void getAccess(){
         try{
             Scanner sc = new Scanner(System.in);
@@ -81,50 +99,65 @@ public class Users {
     }
 
 
+    /**
+     * For pharmacists to add and remove medicine
+     */
     public void addRemoveMedicine(){
-        String input = "";
-        while(!input.equals("q")){
-            System.out.println("Do you want to:\n1. Add medicine\n2. Remove medicine\nq to quit");
-            Scanner sc = new Scanner(System.in);
-            input = sc.nextLine();
-            if(input.equals("q")){
-                System.out.println("Exiting...");
-            }else if(Integer.parseInt(input) == 1){
-                System.out.println("Is this medication over the counter? (y/n)");
-                String input2 = sc.nextLine();
-                if(input2.equals("y")){
-                    System.out.println("Enter the name: ");
-                    String name = sc.nextLine();
-                    System.out.println("Enter the experation date(yyyy-mm-dd): ");
-                    String expires = sc.nextLine();
-                    Random randy = new Random();
-                    int index = randy.nextInt(CHEMICAL_COMPOUNDS.size());
-                    int index2 = randy.nextInt(DRUG_INTERACTIONS.size()-1)+1;
-                    String drugInteractions = DRUG_INTERACTIONS.get(index2) + ";" + DRUG_INTERACTIONS.get(index2-1);
-                    new OverTheCounter(Main.lastID()+1, name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
-                }else if(input2.equals("n")){
-                    System.out.println("Enter the name: ");
-                    String name = sc.nextLine();
-                    System.out.println("Enter the experation date(yyyy-mm-dd): ");
-                    String expires = sc.nextLine();
-                    Random randy = new Random();
-                    int index = randy.nextInt(CHEMICAL_COMPOUNDS.size());
-                    int index2 = randy.nextInt(DRUG_INTERACTIONS.size()-1)+1;
-                    String drugInteractions = DRUG_INTERACTIONS.get(index2) + ";" + DRUG_INTERACTIONS.get(index2-1);
-                    new Prescription(Main.lastID()+1, name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
+        try{
+            String input = "";
+            while(!input.equals("q")){
+                System.out.println("Do you want to:\n1. Add medicine\n2. Remove medicine\nq to quit");
+                Scanner sc = new Scanner(System.in);
+                input = sc.nextLine();
+                if(input.equals("q")){
+                    System.out.println("Exiting...");
+                }else if(Integer.parseInt(input) == 1){
+                    System.out.println("Is this medication over the counter? (y/n)");
+                    String input2 = sc.nextLine();
+                    if(input2.equals("y")){
+                        System.out.println("Enter the name: ");
+                        String name = sc.nextLine();
+                        System.out.println("Enter the experation date(yyyy-mm-dd): ");
+                        String expires = sc.nextLine();
+                        Random randy = new Random();
+                        int index = randy.nextInt(CHEMICAL_COMPOUNDS.size());
+                        int index2 = randy.nextInt(DRUG_INTERACTIONS.size()-1)+1;
+                        String drugInteractions = DRUG_INTERACTIONS.get(index2) + ";" + DRUG_INTERACTIONS.get(index2-1);
+                        new OverTheCounter(Main.lastID()+1, name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
+                    }else if(input2.equals("n")){
+                        System.out.println("Enter the name: ");
+                        String name = sc.nextLine();
+                        System.out.println("Enter the experation date(yyyy-mm-dd): ");
+                        String expires = sc.nextLine();
+                        Random randy = new Random();
+                        int index = randy.nextInt(CHEMICAL_COMPOUNDS.size());
+                        int index2 = randy.nextInt(DRUG_INTERACTIONS.size()-1)+1;
+                        String drugInteractions = DRUG_INTERACTIONS.get(index2) + ";" + DRUG_INTERACTIONS.get(index2-1);
+                        new Prescription(Main.lastID()+1, name, expires, CHEMICAL_COMPOUNDS.get(index), drugInteractions).addMedicine();
+                    }
+                }else if(Integer.parseInt(input) == 2){
+                    System.out.println("What is the id number of the medicine to remove?");
+                    int index = sc.nextInt();
+                    Medicine.removeRowFromCSV(index);
                 }
-            }else if(Integer.parseInt(input) == 2){
-                System.out.println("What is the id number of the medicine to remove?");
-                int index = sc.nextInt();
-                Medicine.removeRowFromCSV(index);
             }
+        } catch (NumberFormatException e){
+            System.out.println("You did not input one of the correct values");
         }
     }
 
+    /**
+     * gets the person from their name that is inputed
+     * @param name String to get person
+     * @return the person with the name
+     */
     public Person getPerson(String name){
         return hm.get(name);
     }
 
+    /**
+     * Prints all doctors
+     */
     public void printDoctors(){
         Collection<Person> doctors = hm.values();
 
@@ -137,6 +170,9 @@ public class Users {
         }
     }
 
+    /**
+     * prints all users
+     */
     public void printAll(){
         Collection<Person> allPeople = hm.values();
         System.out.println("---------------------------------------------------------------------");
