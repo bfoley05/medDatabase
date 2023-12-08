@@ -142,7 +142,8 @@ public class Main {
      */
     public static boolean removeExpiredMeds(){
         try{
-            for(int i = 0; i < countLinesInCSV(); i++){
+            int lines = countLinesInCSV();
+            for(int i = 0; i < lines; i++){
                 String expires = experiationDate(i);
                 if(Medicine.isExpired(expires)){
                     int id = getID(i);
@@ -157,7 +158,9 @@ public class Main {
         }
         return true;
     }
-
+    
+    
+    
     /**
      * Our loading screen
      */
